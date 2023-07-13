@@ -1,46 +1,82 @@
-// Capturar entradas mediante prompt()
-let numero1 = parseFloat(prompt("Ingresa el primer número:"));
-let numero2 = parseFloat(prompt("Ingresa el segundo número:"));
+// JavaScript para el modal
+let cartModal = document.getElementById('cartModal');
+let cartButton = document.getElementById('cartButton');
+let closeButton = document.getElementsByClassName('close')[0];
 
-// Declarar variables y objetos
-let resultadoSuma, resultadoResta, resultadoMultiplicacion, resultadoDivision, resultadoPorcentaje;
-
-// Crear array para almacenar los resultados
-let resultados = [];
-
-function suma(a, b) {
-  return a + b;
+cartButton.onclick = function () {
+    cartModal.style.display = 'block';
 }
 
-function resta(a, b) {
-  return a - b;
+closeButton.onclick = function () {
+    cartModal.style.display = 'none';
 }
 
-function multiplicacion(a, b) {
-  return a * b;
+window.onclick = function (event) {
+    if (event.target == cartModal) {
+        cartModal.style.display = 'none';
+    }
 }
 
-function division(a, b) {
-  return a / b;
+// Función para agregar productos al carrito
+function addToCart(productName, price) {
+    let cartItems = getCartItemsFromStorage();
+    cartItems.push({ name: productName, price: price });
+    saveCartItemsToStorage(cartItems);
+    renderCartItems();
+
+    showSuccessMessage(productName);
 }
 
-function porcentaje(a, porcentaje) {
-  return (a * porcentaje) / 100;
+// Función para obtener los productos del carrito desde el almacenamiento local
+function getCartItemsFromStorage() {
+    let cartItemsJSON = localStorage.getItem('cartItems');
+    if (cartItemsJSON) {
+        return JSON.parse(cartItemsJSON);
+    }
+    return [];
 }
 
-// Realizar las operaciones y guardar los resultados en el array
-resultados.push(suma(numero1, numero2));
-resultados.push(resta(numero1, numero2));
-resultados.push(multiplicacion(numero1, numero2));
-resultados.push(division(numero1, numero2));
-resultados.push(porcentaje(numero1, 20)); // Calcula el 20% de numero1
+// Función para guardar los productos del carrito en el almacenamiento local
+function saveCartItemsToStorage(cartItems) {
+    let cartItemsJSON = JSON.stringify(cartItems);
+    localStorage.setItem('cartItems', cartItemsJSON);
+}
 
-// Muestra los resultados mediante alert()
-alert("Resultados:" +
-      "\nSuma: " + resultados[0] +
-      "\nResta: " + resultados[1] +
-      "\nMultiplicación: " + resultados[2] +
-      "\nDivisión: " + resultados[3] +
-      "\nPorcentaje: " + resultados[4]);
+// Función para mostrar los productos del carrito
+function renderCartItems() {
+    let cartItems = document.getElementById('cartItems');
+    cartItems.innerHTML = '';
+
+    let cartItemsData = getCartItemsFromStorage();
+    cartItemsData.forEach(function (item) {
+        let newItem = document.createElement('li');
+        newItem.textContent = item.name + ' - Precio: $' + item.price;
+        cartItems.appendChild(newItem);
+    });
+}
+
+// Función para vaciar el carrito
+function clearCart() {
+    localStorage.removeItem('cartItems');
+    renderCartItems();
+}
+
+
+// Función para mostrar el mensaje de éxito
+function showSuccessMessage(productName) {
+    let successMessage = document.getElementById('successMessage');
+    successMessage.textContent = '¡' + productName + ' se ha agregado al carrito correctamente!';
+    successMessage.style.display = 'block';
+
+    // Ocultar el mensaje después de 3 segundos
+    setTimeout(function () {
+        successMessage.style.display = 'none';
+    }, 3000);
+}
+
+// Renderizar los productos del carrito al cargar la página
+window.onload = function () {
+    renderCartItems();
+};
 
   

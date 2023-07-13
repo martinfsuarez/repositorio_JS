@@ -1,0 +1,132 @@
+*{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+}
+
+.carrito{
+    padding: 8px 30px;
+    margin: 10px;
+    background-color: #4CAF50;
+    border: #4CAF50 solid 2px;
+    cursor: pointer;
+    color: black;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.title{
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+}
+
+img{
+    height: 200px;
+    width: 250px;
+    background-size: contain;
+}
+
+.product {
+    height: 300px;
+    width: 20%;
+    border: 2px solid #ccc;
+    text-align: center;
+    margin-right: 10px;
+    overflow: hidden;
+    align-items: end;
+}
+
+
+
+.addToCartButton {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+.modal {
+    display: none; /* Oculta el modal por defecto */
+    position: fixed; /* Permite posicionar el modal en la pantalla */
+    z-index: 1; /* Coloca el modal encima de los demás elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita el desplazamiento si el contenido es demasiado grande */
+    background-color: rgba(0,0,0,0.4); /* Fondo oscuro semi-transparente de todo el modal completo */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Centra el modal verticalmente y lo deja con un margen del 10% */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.modal-content h2{
+    text-transform: uppercase;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.items{
+    margin: 30px;
+    line-height: 30px;
+}
+
+.compraRealizada, .clearCarrito{
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 10px;
+    border: solid 2px #4CAF50;
+    font-size: 15px;
+    cursor: pointer;
+    color: black;
+}
+
+.compraRealizada:hover,
+.clearCarrito:hover{
+    background-color: #4caf4f48;
+}
+
+
+
+/* Estilos para el mensaje de éxito */
+.success-message {
+    display: none; /* Oculta el mensaje de éxito por defecto */
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    padding: 10px;
+    margin-bottom: 10px;
+}
