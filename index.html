@@ -1,62 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1c694c143b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/estilo.css">
-    <title>Document</title>
+    <title>Tienda Web</title>
 </head>
+
 <body>
     <header>
-        <h1>Tienda en línea</h1>
-        <button class="carrito" id="cartButton">Carrito</button>
+        <h1>Tienda de Hardware</h1>
     </header>
-    <h2 class="title">Productos:</h2>
+
     <main>
-        <div class="product">
-            <img src="./assets/img/placa de video.png" alt="placadevideo">
-            <h3>Gigabyte Geforce RTX 4080</h3>
-            <p>Precio: 15$</p>
-            <button class="addToCartButton" onclick="addToCart('Gigabyte RTX 4080', 15)">Agregar al carrito</button>
-        </div>
-        <div class="product">
-            <img src="./assets/img/monitor.png" alt="monitor">
-            <h3>LG UltraGear Oled</h3>
-            <p>Precio: 15$</p>
-            <button class="addToCartButton" onclick="addToCart('LG UltraGear Oled', 15)">Agregar al carrito</button>
-        </div>
-        <div class="product">
-            <img src="./assets/img/Procesador-Intel-Core-i9-10900.png" alt="procesador">
-            <h3>Procesador Intel Core i9-10900</h3>
-            <p>Precio: $15</p>
-            <button class="addToCartButton" onclick="addToCart('Procesador Intel Core i9-10900', 15)">Agregar al carrito</button>
-        </div>
-        <div class="product">
-            <img src="./assets/img/motherboard.png" alt="mother">
-            <h3>Motherboard Aorus B560M Pro</h3>
-            <p>Precio: $15</p>
-            <button class="addToCartButton" onclick="addToCart('Motherboard Aorus B560M Pro', 15)">Agregar al carrito</button>
-        </div>
-        <div class="product">
-            <img src="./assets/img/fuente.png" alt="fuente">
-            <h3>Fuente de alimentacion EVGA 850 G2</h3>
-            <p>Precio: $15</p>
-            <button class="addToCartButton" onclick="addToCart('Fuente de alimentacion EVGA 850 G2', 15)">Agregar al carrito</button>
-        </div>
+        <section class="products-container">
+            <div class="products-grid">
+                <!-- Aquí se mostrarán los productos -->
+            </div>
+        </section>
+
+        <section class="cart">
+            <div class="contain-title">
+                <h2>Carrito de Compras</h2>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="container-quantity-productos">
+                <p>Cantidad de productos:</p>
+                <div class="cart-count-container">
+                    <span class="cart-count"></span>
+                </div>
+            </div>
+            <ul class="cart-items">
+                <!-- Aquí se mostrarán los productos agregados al carrito -->
+            </ul>
+            <div class="cart-total">
+                <p>Total:</p>
+                <p><span id="cart-total">$0.00</span></p>
+            </div>
+            <div class="cart-actions">
+                <button class="checkout-btn">Finalizar Compra</button>
+                <button class="empty-cart-btn">Vaciar Carrito</button>
+            </div>
+        </section>
     </main>
 
-    <!-- Modal para el carrito -->
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Carrito de compras:</h2>
-            <ul class="items" id="cartItems"></ul>
-            <button class="compraRealizada" id="checkoutButton">Realizar compra</button>
-            <button class="clearCarrito" id="clearCartButton" onclick="clearCart()">Vaciar carrito</button>
-        </div>
-    </div>
-    
-    <div id="successMessage" class="success-message"></div>
     <script src="./js/app.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
+
 </html>

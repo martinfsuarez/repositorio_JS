@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Monitor gamer LG UltraGear 144Hz",
+        "price": 236.00,
+        "image": "/assets/img/monitor.png"
+    },
+    {
+        "id": 2,
+        "name": "Placa de video Gigabyte 4080",
+        "price": 1818.00,
+        "image": "/assets/img/placa de video.png"
+    },
+    {
+        "id": 3,
+        "name": "Procesador Intel-core i9-10900",
+        "price": 509.00,
+        "image": "/assets/img/Procesador-Intel-Core-i9-10900.png"
+    },
+    {
+        "id": 4,
+        "name": "Motherboard Aorus B560M Pro",
+        "price": 243.00,
+        "image": "assets/img/motherboard.png"
+    },
+    {
+        "id": 5,
+        "name": "Fuente de alimentación EVGA 850 G2",
+        "price": 209.00,
+        "image": "assets/img/fuente.png"
+    },
+    {
+        "id": 6,
+        "name": "Gabinete Corsair Crystal 680x",
+        "price": 290.00,
+        "image": "assets/img/gabinete-corsair-crystal-680x.png"
+    }
+]
